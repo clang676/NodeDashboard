@@ -8,7 +8,12 @@ var db = require('./model/db');
 var stylus = require('stylus');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var user = require('./routes/user');
+var table = require('./routes/table');
+var typography = require('./routes/typography');
+var icon = require('./routes/icon');
+var map = require('./routes/map');
+var notifications = require('./routes/notifications');
 
 var app = express();
 
@@ -26,7 +31,12 @@ app.use(stylus.middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/', user);
+app.use('/', table);
+app.use('/', typography);
+app.use('/', icon);
+app.use('/', map);
+app.use('/', notifications);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
